@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './styles/main.css';
-import Header from "./Components/Header/Header"
+import Header from './Components/Header/Header';
+import WeatherForecast from './Components/WeatherForecast/WeatherForecast';
 
-function App() {
+const App = () => {
+
+ // eslint-disable-next-line no-unused-vars
+ const [searchedLocation, setSearchedLocation] = useState({});
+  // eslint-disable-next-line no-unused-vars
+ const [searchedLatLong, setSearchedLatLong] = useState({});
+
   return (
     <>
-    <Header />
+      <Header />
+      <WeatherForecast setSearchedLocation={setSearchedLocation} setSearchedLatLong={setSearchedLatLong} />
     </>
   );
 }
