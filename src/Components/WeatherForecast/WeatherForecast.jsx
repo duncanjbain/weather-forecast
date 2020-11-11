@@ -1,7 +1,11 @@
 import React, { useRef, useLayoutEffect } from 'react';
 import Places from 'places.js';
 
-const WeatherForecast = ({ setSearchedLocation, setSearchedLatLong }) => {
+const WeatherForecast = ({
+  setSearchedLocation,
+  setSearchedLatLong,
+  setWeatherForecast,
+}) => {
   const inputRef = useRef({});
 
   useLayoutEffect(() => {
@@ -11,8 +15,13 @@ const WeatherForecast = ({ setSearchedLocation, setSearchedLatLong }) => {
     });
 
     PlaceSearch.on('change', (e) => {
-        setSearchedLocation(e.suggestion)
-        setSearchedLatLong(e.suggestion.latlng)
+      setSearchedLocation(e.suggestion);
+      setSearchedLatLong(e.suggestion.latlng);
+    });
+
+    PlaceSearch.on('clear', () => {
+      setSearchedLatLong();
+      setWeatherForecast();
     });
   }, []);
 
