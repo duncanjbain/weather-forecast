@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './styles/main.css';
 import Header from './Components/Header/Header';
 import WeatherForecast from './Components/WeatherForecast/WeatherForecast';
+import fetchWeatherForecast from './Services/weatherApi';
 
 const App = () => {
   // eslint-disable-next-line no-unused-vars
@@ -13,7 +14,7 @@ const App = () => {
     if (searchedLatLong == null) {
       return;
     }
-    // do weather api stuff
+    fetchWeatherForecast(searchedLatLong).then(data => setWeatherForecast(data))y
   }, [searchedLatLong]);
 
   return (

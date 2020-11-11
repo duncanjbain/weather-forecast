@@ -5,6 +5,8 @@ const WeatherForecast = ({
   setSearchedLocation,
   setSearchedLatLong,
   setWeatherForecast,
+  // eslint-disable-next-line no-unused-vars
+  weatherForecast,
 }) => {
   const inputRef = useRef({});
 
