@@ -1,36 +1,12 @@
-import React, { useRef, useLayoutEffect } from 'react';
-import Places from 'places.js';
+import React from 'react';
 
-const WeatherForecast = ({
-  setSearchedLocation,
-  setSearchedLatLong,
-  setWeatherForecast,
-  // eslint-disable-next-line no-unused-vars
-  weatherForecast,
-}) => {
-  const inputRef = useRef({});
 
-  useLayoutEffect(() => {
-    const PlaceSearch = new Places({
-      type: 'city',
-      container: inputRef.current,
-    });
-
-    PlaceSearch.on('change', (e) => {
-      setSearchedLocation(e.suggestion);
-      setSearchedLatLong(e.suggestion.latlng);
-    });
-
-    PlaceSearch.on('clear', () => {
-      setSearchedLatLong();
-      setWeatherForecast();
-    });
-  }, []);
+const WeatherForecast = ({ weatherForecast }) => {
 
   return (
-    <main className="w-full mx-auto md:w-1/2">
-      <input type="search" ref={inputRef} placeholder="Location..." />
-    </main>
+    <div>
+      <p>Test</p>
+    </div>
   );
 };
 
