@@ -23,6 +23,18 @@ const WeatherForecastSearch = ({
       setSearchedLatLong();
       setWeatherForecast();
     });
+
+    PlaceSearch.on('locate', () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+          const latLng = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
+          setSearchedLatLong(latLng);
+        });
+      }
+    });
   }, []);
 
   return (

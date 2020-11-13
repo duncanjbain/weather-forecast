@@ -12,7 +12,6 @@ const App = () => {
   // eslint-disable-next-line no-unused-vars
   const [weatherForecast, setWeatherForecast] = useState(null);
 
-
   useEffect(() => {
     if (searchedLatLong == null) {
       return;
@@ -30,9 +29,7 @@ const App = () => {
         setSearchedLatLong={setSearchedLatLong}
         setWeatherForecast={setWeatherForecast}
       />
-      <WeatherForecast
-        weatherForecast={weatherForecast}
-      />
+      <WeatherForecast weatherForecast={weatherForecast} />
     </>
   );
 };
