@@ -5,6 +5,7 @@ const WeatherForecastSearch = ({
   setSearchedLocation,
   setSearchedLatLong,
   setWeatherForecast,
+  setLocationName,
 }) => {
   const inputRef = useRef({});
 
@@ -32,6 +33,10 @@ const WeatherForecastSearch = ({
             lng: position.coords.longitude,
           };
           setSearchedLatLong(latLng);
+          const placesApiUrl = `https://places-dsn.algolia.net/1/places/reverse?aroundLatLng=${position.coords.latitude},${position.coords.longitude}&hitsPerPage=1&language=en`;
+          fetch(placesApiUrl)
+            .then((response) => response.json())
+            .then((data) => setLocationName(`${data.hits[0].locale_names[0]}`));
         });
       }
     });
