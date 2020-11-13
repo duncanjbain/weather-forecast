@@ -2,9 +2,9 @@ import React from 'react';
 
 const WeatherForecast = () => {
   return (
-    <div>
-      <p>Test</p>
-    </div>
+    <section>
+      <h3 className="text-2xl">Weather</h3>
+    </section>
   );
 };
 

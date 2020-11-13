@@ -26,13 +26,15 @@ const App = () => {
   return (
     <>
       <Header />
-      <WeatherForecastSearch
-        setSearchedLocation={setSearchedLocation}
-        setSearchedLatLong={setSearchedLatLong}
-        setWeatherForecast={setWeatherForecast}
-        setLocationName={setLocationName}
-      />
-      <WeatherForecast weatherForecast={weatherForecast} />
+      <main className="w-full mx-auto md:w-1/2">
+        <WeatherForecastSearch
+          setSearchedLocation={setSearchedLocation}
+          setSearchedLatLong={setSearchedLatLong}
+          setWeatherForecast={setWeatherForecast}
+          setLocationName={setLocationName}
+        />
+        <WeatherForecast weatherForecast={weatherForecast} />
+      </main>
     </>
   );
 };

@@ -18,6 +18,7 @@ const WeatherForecastSearch = ({
     PlaceSearch.on('change', (e) => {
       setSearchedLocation(e.suggestion);
       setSearchedLatLong(e.suggestion.latlng);
+      setLocationName(e.suggestion.name);
     });
 
     PlaceSearch.on('clear', () => {
@@ -43,9 +44,9 @@ const WeatherForecastSearch = ({
   }, []);
 
   return (
-    <main className="w-full mx-auto md:w-1/2">
+    <section>
       <input type="search" ref={inputRef} placeholder="Location..." />
-    </main>
+    </section>
   );
 };
 
