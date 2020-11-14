@@ -33,7 +33,9 @@ const App = () => {
           setWeatherForecast={setWeatherForecast}
           setLocationName={setLocationName}
         />
-        <WeatherForecast weatherForecast={weatherForecast} />
+        {weatherForecast && (
+          <WeatherForecast locationName={locationName} weatherForecast={weatherForecast} />
+        )}
       </main>
     </>
   );
