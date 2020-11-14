@@ -1,6 +1,16 @@
 import React from 'react';
 
 const WeatherForecast = ({ locationName, weatherForecast }) => {
+  const utcToHHMM = (time) => {
+    const utcTime = new Date(time * 1e3);
+    const addZeroBefore = (n) => {
+      return (n < 10 ? '0' : '') + n;
+    };
+    const currentForecastHour = addZeroBefore(utcTime.getHours());
+    const currentForecastMinutes = addZeroBefore(utcTime.getMinutes());
+    return `${currentForecastHour}:${currentForecastMinutes}`;
+  };
+
   return (
     <section className="p-4 flex w-auto">
       <div className="w-full">
@@ -18,8 +28,12 @@ const WeatherForecast = ({ locationName, weatherForecast }) => {
           </p>
         </div>
         <div className="flex flex-row">
-          <p className="pr-4">Sunrise {(weatherForecast.current.sunrise)}</p>
-          <p className="pr-4">Sunset {(weatherForecast.current.sunset)}</p>
+          <p className="pr-4">
+            Sunrise {utcToHHMM(weatherForecast.current.sunrise)}
+          </p>
+          <p className="pr-4">
+            Sunset {utcToHHMM(weatherForecast.current.sunset)}
+          </p>
         </div>
       </div>
     </section>
