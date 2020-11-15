@@ -1,11 +1,11 @@
 const utcToHHMM = (time) => {
-    const utcTime = new Date(time * 1e3);
-    const addZeroBefore = (n) => {
-      return (n < 10 ? '0' : '') + n;
-    };
-    const currentForecastHour = addZeroBefore(utcTime.getHours());
-    const currentForecastMinutes = addZeroBefore(utcTime.getMinutes());
-    return `${currentForecastHour}:${currentForecastMinutes}`;
+  const utcTime = new Date(time * 1e3);
+  const options = {
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: false,
   };
+  return new Intl.DateTimeFormat('en', options).format(utcTime);
+};
 
-  export default utcToHHMM;
+export default utcToHHMM;
