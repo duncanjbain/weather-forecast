@@ -8,4 +8,4 @@ const utcToHHMM = (time) => {
   return new Intl.DateTimeFormat('en', options).format(utcTime);
 };
 
-export default utcToHHMM;
+export default utcToHHMM
