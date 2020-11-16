@@ -31,7 +31,7 @@ const WeatherForecast = ({ locationName, weatherForecast }) => {
         <div className="flex flex-row justify-between mt-4">
           {weatherForecast.hourly.slice(1,8).map(hour =><HourlyWeatherForecast hourlyForecast={hour} />)}
         </div>
-        <div className="flex flex-row justify-between mt-4">
+        <div className="flex flex-col md:flex-row justify-between mt-4">
           {weatherForecast.daily.slice(1,8).map(day =><DailyWeatherForecast dailyForecast={day} />)}
         </div>
       </div>
