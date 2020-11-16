@@ -1,6 +1,7 @@
 import React from 'react';
 import HourlyWeatherForecast from '../HourlyWeatherForecast/HourlyWeatherForecast';
-import utcToHHMM from '../../Services/timeConvert';
+import DailyWeatherForecast from '../DailyWeatherForecast/DailyWeatherForecast';
+import { utcToHHMM } from '../../Services/timeConvert';
 
 const WeatherForecast = ({ locationName, weatherForecast }) => {
   return (
@@ -15,8 +16,8 @@ const WeatherForecast = ({ locationName, weatherForecast }) => {
             Feels like {Math.round(weatherForecast.current.feels_like)}&deg;C
           </p>
           <p className="pr-4">
-            {Math.round(weatherForecast.daily[0].temp.max)}&deg;C /{' '}
-            {Math.round(weatherForecast.daily[0].temp.min)}&deg;C
+            {Math.round(weatherForecast.daily[0].temp.min)}&deg;C /{' '}
+            {Math.round(weatherForecast.daily[0].temp.max)}&deg;C
           </p>
         </div>
         <div className="flex flex-row mt-4">
@@ -28,7 +29,10 @@ const WeatherForecast = ({ locationName, weatherForecast }) => {
           </p>
         </div>
         <div className="flex flex-row justify-between mt-4">
-          {weatherForecast.hourly.slice(1,8).map(hourly =><HourlyWeatherForecast hourlyForecast={hourly} />)}
+          {weatherForecast.hourly.slice(1,8).map(hour =><HourlyWeatherForecast hourlyForecast={hour} />)}
+        </div>
+        <div className="flex flex-row justify-between mt-4">
+          {weatherForecast.daily.slice(1,8).map(day =><DailyWeatherForecast dailyForecast={day} />)}
         </div>
       </div>
     </section>

@@ -1,4 +1,4 @@
-const utcToHHMM = (time) => {
+export const utcToHHMM = (time) => {
   const utcTime = new Date(time * 1e3);
   const options = {
     hour: 'numeric',
@@ -8,4 +8,7 @@ const utcToHHMM = (time) => {
   return new Intl.DateTimeFormat('en', options).format(utcTime);
 };
 
-export default utcToHHMM
+export const utcToWeekDayShort = (time) => {
+  const utcTime = new Date(time*1e3);
+  return new Intl.DateTimeFormat('en', {weekday: 'short'}).format(utcTime)
+}

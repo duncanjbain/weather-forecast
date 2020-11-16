@@ -44,7 +44,7 @@ const WeatherForecastSearch = ({
   }, []);
 
   return (
-    <section className="w-full px-4">
+    <section className="w-1/2 mx-auto px-4">
       <input type="search" ref={inputRef} placeholder="Location..." />
     </section>
   );
